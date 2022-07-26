@@ -1,6 +1,6 @@
 @extends('layouts.base')
     @section('title-content')
-        <h1 class="m-0"><i class="fas fa-network-wired"></i> Usuarios</h1>
+        <h1 class="m-0"><i class="fas fa-user"></i> Usuarios</h1>
     @endsection
     @section('content')
         <section class="content">
