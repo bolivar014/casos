@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Person;
 
 class UsersController extends Controller
 {
@@ -13,8 +14,12 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
-        return view('users.index');
+        // Retornamos vista index con objeto Personas
+        return view('users.index', [
+            'persons' => Person::paginate(10)
+        ]);
+
+
     }
 
     /**
