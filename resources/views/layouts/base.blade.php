@@ -150,7 +150,7 @@
                 <!-- Brand Logo -->
                 <a href="{{ url('/home') }}" class="brand-link">
                     <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <span class="brand-text font-weight-light">TICKETS</span>
+                    <span class="brand-text font-weight-light">CASOS</span>
                 </a>
                 @guest
                 @else
@@ -168,32 +168,37 @@
                         <!-- /.sidebar-menu -->
                         <nav class="mt-2">
                             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                                <li class="nav-item menu-open">
-                                    <a href="#" class="nav-link active">
-                                        <i class="fas fa-cog"></i>
-                                        <p>
-                                          Permisos
-                                          <i class="right fas fa-angle-left"></i>
-                                        </p>
-                                    </a>
-                                    <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a href="{{ url('/departaments') }}" class="nav-link">
-                                                <i class="fas fa-network-wired"></i>
-                                                <p>Departamentos</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ url('/tipifications') }}" class="nav-link">
-                                                <i class="fas fa-project-diagram"></i>
-                                                <p>Tipificación</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <!--<a href="{{ url('/departaments') }}" class="nav-link"><i class="fas fa-network-wired"></i> Departamentos</a>-->
+                                <!--
+                                    <li class="nav-item menu-open">
+                                        <a href="#" class="nav-link active">
+                                            <i class="fas fa-cog"></i>
+                                            <p>
+                                            Permisos
+                                            <i class="right fas fa-angle-left"></i>
+                                            </p>
+                                        </a>
+                                        <ul class="nav nav-treeview">
+                                            <li class="nav-item">
+                                                <a href="{{ url('/departaments') }}" class="nav-link">
+                                                    <i class="fas fa-network-wired"></i>
+                                                    <p></p>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="{{ url('/tipifications') }}" class="nav-link">
+                                                    <i class="fas fa-project-diagram"></i>
+                                                    <p>Tipificación</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <a href="{{ url('/departaments') }}" class="nav-link"><i class="fas fa-network-wired"></i> Departamentos</a>
+                                    </li>
+                                -->
+                                <li class="nav-item">
+                                    <a href="{{ url('/tickets') }}" class="nav-link"><i class="fas fa-ticket-alt"></i> Tickets</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ url('/tickets') }}" class="nav-link"><i class="fas fa-ticket-alt"></i> Mis Tickets</a>
+                                    <a href="{{ url('/users') }}" class="nav-link"><i class="fas fa-user"></i> Usuarios</a>
                                 </li>
                             </ul>
                         </nav>
