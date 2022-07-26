@@ -21,5 +21,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-Route::get('/users', [UsersController::class, 'index']);
+// Ruta de recursos compartidos | Personas
+Route::resource('/users', UsersController::class);
