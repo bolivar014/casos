@@ -25,9 +25,9 @@
             </div>
 
             <!-- Navbar dark -->
-            <nav class="main-header navbar navbar-expand navbar-dark">
+            <!-- <nav class="main-header navbar navbar-expand navbar-dark"> -->
             <!-- Navbar white -->
-            <!-- <nav class="main-header navbar navbar-expand navbar-white navbar-light"> -->
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light">
                 <!-- Left navbar links -->
                 <ul class="navbar-nav">
                     @guest
