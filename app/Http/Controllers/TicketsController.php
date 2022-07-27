@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Ticket;
-
+use App\Models\Person;
 class TicketsController extends Controller
 {
     // Constructor para permitir el uso de sólo personas autenticadas
@@ -32,8 +33,13 @@ class TicketsController extends Controller
      */
     public function create()
     {
+        // Consultamos personas
+        $peoples = DB::table('people')->get();
+
         // Retornamos vista crear ticket
-        return view('tickets.create');
+        return view('tickets.create', [
+            'peoples' => $peoples,
+        ]);
     }
 
     /**

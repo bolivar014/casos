@@ -23,11 +23,11 @@
                             <div class="form-group">
                                 <label for="" class="col-sm-6">Cliente</label>
                                 <div class="input-group mb-3 col-sm-9">
-                                    <select name="selIdCliente" id="selIdCliente" class="form-control" >
+                                    <select name="selIdCliente" id="selIdCliente" class="form-control" required>
                                         <option value="" selected disabled>Seleccione opción</option>
-                                        <option value="1" {{ old('selIdCliente') == "1" ? "selected" : "" }}>Pepito Perez</option>
-                                        <option value="2" {{ old('selIdCliente') == "2" ? "selected" : "" }}>Laura Hernandez</option>
-                                        <option value="3" {{ old('selIdCliente') == "3" ? "selected" : "" }}>Andrea Herrera</option>
+                                        @foreach ($peoples as $people)
+                                            <option value="{{ $people->id }}">{{ $people->nombre_completo }}</option>
+                                        @endforeach
                                     </select>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
@@ -41,7 +41,7 @@
                             <div class="form-group">
                                 <label for="" class="col-sm-6">Abogado</label>
                                 <div class="input-group mb-3 col-sm-9">
-                                    <select name="selIdAbogado" id="selIdAbogado" class="form-control" >
+                                    <select name="selIdAbogado" id="selIdAbogado" class="form-control" required>
                                         <option value="" selected disabled>Seleccione opción</option>
                                         <option value="1" {{ old('selIdAbogado') == "1" ? "selected" : "" }}>Sofia Perez</option>
                                         <option value="2" {{ old('selIdAbogado') == "2" ? "selected" : "" }}>Andres Hernandez</option>
@@ -62,7 +62,7 @@
                             <div class="form-group">
                                 <label for="" class="col-sm-6">Solicitud</label>
                                 <div class="input-group mb-3 col-sm-9">
-                                    <input type="text" id="txt_solicitud_caso" name="txt_solicitud_caso" class="form-control" placeholder="Asunto del caso"  minlength="5" maxlength="50" value="{{ old('txt_solicitud_caso') }}">
+                                    <input type="text" id="txt_solicitud_caso" name="txt_solicitud_caso" class="form-control" placeholder="Asunto del caso" required minlength="5" maxlength="50" value="{{ old('txt_solicitud_caso') }}">
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <span class="fas fa-file-signature"></span>
@@ -75,7 +75,7 @@
                             <div class="form-group">
                                 <label for="" class="col-sm-6">Descripción</label>
                                 <div class="input-group mb-3 col-sm-9">
-                                    <textarea class="form-control" name="textDescripcion" id="textDescripcion" cols="30" rows="4" placeholder="Descripción del caso..."  minlength="1" maxlength="255" value="{{ old('textDescripcion') }}"></textarea>
+                                    <textarea class="form-control" name="textDescripcion" id="textDescripcion" cols="30" rows="4" placeholder="Descripción del caso..." required minlength="1" maxlength="255" value="{{ old('textDescripcion') }}"></textarea>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <span class="fas fa-comment"></span>
