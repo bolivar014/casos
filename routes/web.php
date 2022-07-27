@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\TicketsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +24,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Ruta de recursos compartidos | Personas
 Route::resource('/users', UsersController::class);
+
+// Ruta de recursos compartidos | Tickets
+Route::resource('/tickets', TicketsController::class);
