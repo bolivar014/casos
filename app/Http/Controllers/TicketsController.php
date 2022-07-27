@@ -121,12 +121,10 @@ class TicketsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request);
-        /*
         // Validación back inputs
         $validarDatos = $request->validate([
             'selIdCliente' => 'required',
-            'selIdAbogado' => 'required',
+            'selIdAbogado' => 'required|exists:users,id',
             'txt_solicitud_caso' => 'required|min:5|max:50',
             'textDescripcion' => 'required|min:5|max:255'
         ]);
@@ -145,7 +143,6 @@ class TicketsController extends Controller
 
         // Retornamos vista
         return redirect('/tickets');
-        */
     }
 
     /**
