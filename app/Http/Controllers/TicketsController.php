@@ -79,6 +79,9 @@ class TicketsController extends Controller
         $ticket->save();
 
         // ----------------
+        // Recupero la ultima ejecución
+        $data = Ticket::latest()->first()->id;
+
         
         // Retornamos vista
         return redirect('/tickets');

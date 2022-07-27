@@ -17,6 +17,7 @@
                 @endif
                 <form action="{{ url('/tickets') }}" method="POST">
                     {{ csrf_field() }}
+                    <input type="hidden" name="objAbogados[]" id="objAbogados" class="form-group">
                     <!-- FILA 1 -->
                     <div class="row">
                         <div class="col-md-6">
@@ -141,6 +142,8 @@
                     
                     console.log('----------');
                     console.log(arrayAbogadosAsignados);
+
+                    $('#objAbogados').val(arrayAbogadosAsignados);
                 });
             });
         </script>
