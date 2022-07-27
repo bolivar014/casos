@@ -88,7 +88,13 @@ class TicketsController extends Controller
      */
     public function edit($id)
     {
-        //
+        // Buscamos id en base de datos
+        $ticket = Ticket::findOrFail($id);
+
+        // Retornamos vista con objeto de ticket
+        return view('tickets.edit', [
+            'ticket' => $ticket
+        ]);
     }
 
     /**
@@ -100,7 +106,28 @@ class TicketsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Validación back inputs
+        $validarDatos = $request->validate([
+            'selIdCliente' => 'required',
+            'selIdAbogado' => 'required',
+            'txt_solicitud_caso' => 'required|min:5|max:50',
+            'textDescripcion' => 'required|min:5|max:255'
+        ]);
+
+        // Buscamos id en base de datos
+        $ticket = Ticket::findOrFail($id);
+        
+        $ticket->id_cliente = $validarDatos['selIdCliente'];
+        $ticket->fk_id_abogado = $validarDatos['selIdAbogado'];
+        $ticket->estado_caso = "Creado";
+        $ticket->nombre_caso = $validarDatos['txt_solicitud_caso'];
+        $ticket->descripcion = $validarDatos['textDescripcion'];
+
+        // Guardamos
+        $ticket->save();
+
+        // Retornamos vista
+        return redirect('/tickets');
     }
 
     /**
