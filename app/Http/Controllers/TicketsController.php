@@ -7,6 +7,11 @@ use App\Models\Ticket;
 
 class TicketsController extends Controller
 {
+    // Constructor para permitir el uso de sólo personas autenticadas
+    public function __construct() {
+        return $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
