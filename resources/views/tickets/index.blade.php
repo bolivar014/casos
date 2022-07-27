@@ -1,6 +1,6 @@
 @extends('layouts.base')
     @section('title-content')
-        <h1 class="m-0"><i class="fas fa-user"></i> Usuarios</h1>
+        <h1 class="m-0"><i class="fas fa-ticket-alt"></i> Casos</h1>
     @endsection
     @section('content')
         <section class="content">
@@ -11,10 +11,10 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-6">
-                                        <h3 class="card-title">Lista de usuarios</h3>
+                                        <h3 class="card-title">Lista de casos</h3>
                                     </div>
                                     <div class="col-6" style="right: 0!important; position: absolute; display:flex; justify-content: end;">
-                                        <a href="{{ url('/tickets/create') }}" class="btn btn-success"><i class="fas fa-plus"></i> Agregar usuario</a>
+                                        <a href="{{ url('/tickets/create') }}" class="btn btn-success"><i class="fas fa-plus"></i> Agregar caso</a>
                                     </div>
                                 </div>
                             </div>
@@ -25,7 +25,8 @@
                                         <tr>
                                             <th style="width: 10px">#</th>
                                             <th>Nombre cliente</th>
-                                            <th>Telefono</th>
+                                            <th>Abogado responsable</th>
+                                            <th>Estado caso</th>
                                             <th style="width: 70px">&nbsp;&nbsp;Opciones&nbsp;&nbsp;</th>
                                         </tr>
                                     </thead>
@@ -34,7 +35,8 @@
                                             <tr>
                                                 <td>{{ $ticket->id }}</td>
                                                 <td>{{ $ticket->id_cliente }}</td>
-                                                <td>{{ $ticket->telefono }}</td>
+                                                <td>{{ $ticket->fk_id_abogado }}</td>
+                                                <td>{{ $ticket->estado_caso }}</td>
                                                 <td>
                                                     <!-- Ver -->
                                                     <a href="{{ url('/tickets/' . $ticket->id) }}" class="badge badge-success" title="Vér"><i class="fas fa-eye"></i></a>
