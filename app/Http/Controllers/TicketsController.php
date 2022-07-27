@@ -78,6 +78,8 @@ class TicketsController extends Controller
         // Guardamos
         $ticket->save();
 
+        // ----------------
+        
         // Retornamos vista
         return redirect('/tickets');
     }

@@ -43,9 +43,9 @@
                                 <div class="input-group mb-3 col-sm-9">
                                     <select name="selIdAbogado" id="selIdAbogado" class="form-control" required>
                                         <option value="" selected disabled>Seleccione opción</option>
-                                        <option value="1" {{ old('selIdAbogado') == "1" ? "selected" : "" }}>Sofia Perez</option>
-                                        <option value="2" {{ old('selIdAbogado') == "2" ? "selected" : "" }}>Andres Hernandez</option>
-                                        <option value="3" {{ old('selIdAbogado') == "3" ? "selected" : "" }}>Mairen Herrera</option>
+                                        <option value="1" id="selopt-1" name="selopt-1" data-idnombre="1-Sofia Perez" {{ old('selIdAbogado') == "1" ? "selected" : "" }}>Sofia Perez</option>
+                                        <option value="2" id="selopt-2" name="selopt-2" data-idnombre="2-Andres Hernandez" {{ old('selIdAbogado') == "2" ? "selected" : "" }}>Andres Hernandez</option>
+                                        <option value="3" id="selopt-3" name="selopt-3" data-idnombre="3-Mairen Herrera" {{ old('selIdAbogado') == "3" ? "selected" : "" }}>Mairen Herrera</option>
                                     </select>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
@@ -85,6 +85,21 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="table table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <th>#</th>
+                                        <th>Abogado</th>
+                                    </thead>
+                                    <tbody id="tbodyAbogado" name="tbodyAbogado">
+                                        <!-- CUERPO HTML PARA TABLA ABOGADOS ASIGNADOS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                     <!-- BOTONES -->    
                     <div class="row">
                         <div class="col-sm-6">
@@ -97,4 +112,36 @@
                 </form>
             </div>
         </section>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>
+            
+            $(document).ready(function() {
+                var arrayAbogadosAsignados = [];
+
+                $('#selIdAbogado').on('change', function(e) {
+                    // Buscamos parametro seleccionado
+                    var datosCli = $(this).find(':selected').attr('data-idnombre');
+                    
+                    // Separamos obj
+                    objDatosSplit = datosCli.split('-');
+                    
+                    // Creamos tr de abogado
+                    objTrAbogado = "<tr>";
+                    objTrAbogado += "<td>" + objDatosSplit[0] + "</td>";
+                    objTrAbogado += "<td>" + objDatosSplit[1] + "</td>";
+                    objTrAbogado += "<tr>";
+                    
+                    // Agregamos tag a tabla
+                    $('#tbodyAbogado').append(objTrAbogado);
+                    
+                    // Deshabilitamos tabla
+                    $('#selopt-' + objDatosSplit[0]).prop('disabled', true);
+
+                    arrayAbogadosAsignados.push(objDatosSplit[0]);
+                    
+                    console.log('----------');
+                    console.log(arrayAbogadosAsignados);
+                });
+            });
+        </script>
     @endsection
