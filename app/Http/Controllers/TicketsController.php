@@ -20,9 +20,16 @@ class TicketsController extends Controller
      */
     public function index()
     {
+        $tickets = DB::table('tickets')
+        ->join('users', 'users.id' , '=', 'tickets.fk_id_abogado')
+        ->join('people', 'people.id' , '=', 'tickets.fk_id_cliente')
+        ->select('tickets.*', 'users.name', 'people.nombre_completo')
+        ->paginate(10);
+
         //Retornamos vista index con objeto Tickets
         return view('tickets.index', [
-            'tickets' => Ticket::paginate(10)
+            // 'tickets' => Ticket::paginate(10)
+            'tickets' => $tickets
         ]);
     }
 
