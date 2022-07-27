@@ -40,8 +40,8 @@
                                                     <a href="{{ url('/users/' . $person->id) }}" class="badge badge-success" title="Vér"><i class="fas fa-eye"></i></a>
                                                     <!-- Editar -->
                                                     <a href="{{ url('/users/' . $person->id . '/edit') }}" class="badge badge-primary" title="Editar"><i class="fas fa-pencil-alt"></i></a>
-                                                    <!-- Eliminar -->
-                                                    <a href="{{ url('/users/' . $person->id . '/confirmDelete') }}" class="badge badge-danger" title="Eliminar"><i class="fas fa-trash-alt"></i></a>
+                                                    <!-- Eliminar
+                                                    <a href="{{ url('/users/' . $person->id . '/confirmDelete') }}" class="badge badge-danger" title="Eliminar"><i class="fas fa-trash-alt"></i></a> -->
                                                 </td>
                                             </tr>
                                         @endforeach
