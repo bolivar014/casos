@@ -1,6 +1,6 @@
 @extends('layouts.base')
     @section('title-content')
-        <h1 class="m-0"><i class="fas fa-ticket-alt"></i> Casos</h1>
+        <h1 class="m-0"><i class="fas fa-ticket-alt"></i>Creación de caso</h1>
     @endsection
     @section('content')
         <section class="content">
