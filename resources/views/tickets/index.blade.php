@@ -26,6 +26,7 @@
                                             <th style="width: 10px">#</th>
                                             <th>Nombre cliente</th>
                                             <th>Abogado responsable</th>
+                                            <th>Nombre caso</th>
                                             <th>Estado caso</th>
                                             <th style="width: 70px">&nbsp;&nbsp;Opciones&nbsp;&nbsp;</th>
                                         </tr>
@@ -36,6 +37,7 @@
                                                 <td>{{ $ticket->id }}</td>
                                                 <td>{{ $ticket->id_cliente }}</td>
                                                 <td>{{ $ticket->fk_id_abogado }}</td>
+                                                <td>{{ $ticket->nombre_caso }}</td>
                                                 <td>{{ $ticket->estado_caso }}</td>
                                                 <td>
                                                     <!-- Ver -->

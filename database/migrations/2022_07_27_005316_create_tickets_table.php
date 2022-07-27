@@ -17,6 +17,7 @@ class CreateTicketsTable extends Migration
             $table->id();
             $table->integer('id_cliente');
             $table->integer('fk_id_abogado');
+            $table->char('nombre_caso', 50);
             $table->date('fecha_inicio');
             $table->char('estado_caso', 30);
             $table->date('fecha_arcfin');
