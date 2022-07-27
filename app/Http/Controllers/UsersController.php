@@ -39,9 +39,31 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
+        $validarDatos = $request->validate([
+            'selTipoDoc' => 'required',
+            'txt_num_doc' => 'required|min:4|max:15',
+            'txt_nombre_comp' => 'required|min:5|max:255',
+            'txt_email' => 'required|min:5|max:255',
+            'txt_telefono' => 'required|min:10|max:10'
+        ]);
+
+        // Creamos conexión al modelo
+        $person = new Person();
+
+        // 
+        $person->tipo_doc = $validarDatos['selTipoDoc'];
+        $person->num_doc = $validarDatos['txt_num_doc'];
+        $person->nombre_completo = $validarDatos['txt_nombre_comp'];
+        $person->email = $validarDatos['txt_email'];
+        $person->telefono = $validarDatos['txt_telefono'];
+
+        // Guardamos registro
+        $person->save();
+
+        // Redireccionamos
+        return redirect('/users');
     }
 
     /**
