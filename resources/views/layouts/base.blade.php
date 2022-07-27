@@ -168,32 +168,21 @@
                         <!-- /.sidebar-menu -->
                         <nav class="mt-2">
                             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                                <!--
                                     <li class="nav-item menu-open">
                                         <a href="#" class="nav-link active">
                                             <i class="fas fa-cog"></i>
                                             <p>
-                                            Permisos
+                                            Helpers
                                             <i class="right fas fa-angle-left"></i>
                                             </p>
                                         </a>
                                         <ul class="nav nav-treeview">
                                             <li class="nav-item">
-                                                <a href="{{ url('/departaments') }}" class="nav-link">
-                                                    <i class="fas fa-network-wired"></i>
-                                                    <p></p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="{{ url('/tipifications') }}" class="nav-link">
-                                                    <i class="fas fa-project-diagram"></i>
-                                                    <p>Tipificación</p>
-                                                </a>
+                                                <a href="{{ url('/apis') }}" class="nav-link"><i class="fas fa-user"></i> Api TRM - CO</a>
                                             </li>
                                         </ul>
-                                        <a href="{{ url('/departaments') }}" class="nav-link"><i class="fas fa-network-wired"></i> Departamentos</a>
                                     </li>
-                                -->
+                               
                                 <li class="nav-item">
                                     <a href="{{ url('/tickets') }}" class="nav-link"><i class="fas fa-ticket-alt"></i> Tickets</a>
                                 </li>

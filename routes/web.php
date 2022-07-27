@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\apisController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\TicketsController;
@@ -27,3 +28,6 @@ Route::resource('/users', UsersController::class);
 
 // Ruta de recursos compartidos | Tickets
 Route::resource('/tickets', TicketsController::class);
+
+// Recurso compartido de apis
+Route::resource('/apis', apisController::class);
