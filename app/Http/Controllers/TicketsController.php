@@ -39,7 +39,27 @@ class TicketsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Creamos conexión al modelo
+        $ticket = new Ticket();
+
+        // Validación back inputs
+        $validarDatos = $request->validate([
+            'selIdCliente' => 'required',
+            'selIdAbogado' => 'required',
+            'txt_solicitud_caso' => 'required|min:5|max:50',
+            'textDescripcion' => 'required|min:5|max:255'
+        ]);
+
+        $ticket->id_cliente = $validarDatos['selIdCliente'];
+        $ticket->fk_id_abogado = $validarDatos['selIdAbogado'];
+        $ticket->nombre_caso = $validarDatos['txt_solicitud_caso'];
+        $ticket->descripcion = $validarDatos['textDescripcion'];
+
+        // Guardamos
+        $ticket->save();
+
+        // Retornamos vista
+        return redirect('/tickets');
     }
 
     /**
