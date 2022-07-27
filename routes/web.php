@@ -31,3 +31,5 @@ Route::resource('/tickets', TicketsController::class);
 
 // Recurso compartido de apis
 Route::resource('/apis', apisController::class);
+
+Route::get('/api_trmCO', [apisController::class, 'trmCO']);

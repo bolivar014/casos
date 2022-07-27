@@ -178,7 +178,10 @@
                                         </a>
                                         <ul class="nav nav-treeview">
                                             <li class="nav-item">
-                                                <a href="{{ url('/apis') }}" class="nav-link"><i class="fas fa-user"></i> Api TRM - CO</a>
+                                                <a href="{{ url('/apis') }}" class="nav-link"><i class="fas fa-user"></i> vista Api TRM - CO</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="{{ url('/api_trmCO') }}" class="nav-link"><i class="fas fa-user"></i> Api TRM - CO</a>
                                             </li>
                                         </ul>
                                     </li>
