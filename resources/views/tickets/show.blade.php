@@ -12,10 +12,8 @@
                             <label for="" class="col-sm-6">Cliente</label>
                             <div class="input-group mb-3 col-sm-9">
                                 <select name="selIdCliente" id="selIdCliente" class="form-control" disabled>
-                                    <option value="" selected disabled>Seleccione opción</option>
-                                    <option value="1" {{ $ticket->id_cliente == "1" ? "selected" : "" }}>Pepito Perez</option>
-                                    <option value="2" {{ $ticket->id_cliente == "2" ? "selected" : "" }}>Laura Hernandez</option>
-                                    <option value="3" {{ $ticket->id_cliente == "3" ? "selected" : "" }}>Andrea Herrera</option>
+                                    <option value="" disabled>Seleccione opción</option>
+                                    <option value="{{ $people->id }}" {{ $ticket->id_cliente == "1" ? "selected" : "" }}>{{ $people->nombre_completo }}</option>
                                 </select>
                                 <div class="input-group-append">
                                     <div class="input-group-text">

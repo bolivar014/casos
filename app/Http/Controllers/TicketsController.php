@@ -82,12 +82,16 @@ class TicketsController extends Controller
      */
     public function show($id)
     {
+        // Consultamos personas
+        $people = Person::findOrFail($id);
+
         // Buscamos id en base de datos
         $ticket = Ticket::findOrFail($id);
 
         // Retornamos vista con objeto de ticket
         return view('tickets.show', [
-            'ticket' => $ticket
+            'ticket' => $ticket,
+            'people' => $people
         ]);
     }
 
@@ -100,15 +104,14 @@ class TicketsController extends Controller
     public function edit($id)
     {
         // Consultamos personas
-        $peoples = DB::table('people')->get();
-
+        $people = Person::findOrFail($id);
         // Buscamos id en base de datos
         $ticket = Ticket::findOrFail($id);
 
         // Retornamos vista con objeto de ticket
         return view('tickets.edit', [
             'ticket' => $ticket,
-            'peoples' => $peoples
+            'people' => $people
         ]);
     }
 

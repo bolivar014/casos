@@ -15,11 +15,9 @@
                                 <label for="" class="col-sm-6">Cliente</label>
                                 <div class="input-group mb-3 col-sm-9">
                                     <select name="selIdCliente" id="selIdCliente" class="form-control" required>
-                                        <option value="" selected disabled>Seleccione opción</option>
-                                        @foreach ($peoples as $people)
-                                            <option value="{{ $people->id }}">{{ $people->nombre_completo }}</option>
-                                        @endforeach
-                                    </select>
+                                        <option value="" disabled>Seleccione opción</option>
+                                            <option value="{{ $people->id }}" {{ $people->id == '1' ? 'selected' : '' }}>{{ $people->nombre_completo }}</option>
+                                        </select>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <span class="fas fa-user"></span>
@@ -33,10 +31,10 @@
                                 <label for="" class="col-sm-6">Abogado</label>
                                 <div class="input-group mb-3 col-sm-9">
                                     <select name="selIdAbogado" id="selIdAbogado" class="form-control" required>
-                                        <option value="" selected disabled>Seleccione opción</option>
-                                        <option value="1" {{ $ticket->fk_id_abogado == "1" ? "selected" : "" }}>Sofia Perez</option>
-                                        <option value="2" {{ $ticket->fk_id_abogado == "2" ? "selected" : "" }}>Andres Hernandez</option>
-                                        <option value="3" {{ $ticket->fk_id_abogado == "3" ? "selected" : "" }}>Mairen Herrera</option>
+                                        <option value="" disabled>Seleccione opción</option>
+                                        <option value="1" {{ $ticket->fk_id_abogado == '1' ? 'selected' : '' }}>Sofia Perez</option>
+                                        <option value="2" {{ $ticket->fk_id_abogado == '2' ? 'selected' : '' }}>Andres Hernandez</option>
+                                        <option value="3" {{ $ticket->fk_id_abogado == '3' ? 'selected' : '' }}>Mairen Herrera</option>
                                     </select>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
