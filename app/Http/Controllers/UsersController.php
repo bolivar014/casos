@@ -74,7 +74,14 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        // Realizamos busqueda del id
+        $person = Person::findOrFail($id);
+
+        // Retornamos vista
+        return view('users.show', [
+            'person' => $person
+        ]);
+
     }
 
     /**
