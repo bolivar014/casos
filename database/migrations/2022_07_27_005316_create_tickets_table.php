@@ -17,8 +17,8 @@ class CreateTicketsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('fk_id_cliente');
             // $table->unsignedBigInteger('fk_id_abogado')->nullable();
-            $table->bigInteger('fk_id_abogado')->unsigned()->nullable();
-            // $table->char('nombre_caso', 50);
+            // $table->bigInteger('fk_id_abogado')->unsigned()->nullable();
+            $table->char('nombre_caso', 50);
             $table->date('fecha_inicio')->nullable();
             $table->char('estado_caso', 30);
             $table->date('fecha_arcfin')->nullable();
