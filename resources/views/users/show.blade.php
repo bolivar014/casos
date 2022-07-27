@@ -87,7 +87,7 @@
                 <!-- BOTONES -->    
                 <div class="row">
                     <div class="col-sm-6">
-                        <button type="submit" class="btn btn-primary btn-block">Crear</button>
+                        <a href="{{ url('/users/' . $person->id . '/edit') }}" class="btn btn-primary btn-block">Editar</a>
                     </div>
                     <div class="col-sm-6">
                         <a href="{{ url('/users') }}" class="btn btn-danger btn-block">Cancelar</a>
