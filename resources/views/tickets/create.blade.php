@@ -91,7 +91,7 @@
                             <button type="submit" class="btn btn-primary btn-block">Crear</button>
                         </div>
                         <div class="col-sm-6">
-                            <a href="{{ url('/users') }}" class="btn btn-danger btn-block">Cancelar</a>
+                            <a href="{{ url('/tickets') }}" class="btn btn-danger btn-block">Cancelar</a>
                         </div>
                     </div>
                 </form>
