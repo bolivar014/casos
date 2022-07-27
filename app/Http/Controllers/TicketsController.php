@@ -52,6 +52,7 @@ class TicketsController extends Controller
 
         $ticket->id_cliente = $validarDatos['selIdCliente'];
         $ticket->fk_id_abogado = $validarDatos['selIdAbogado'];
+        $ticket->estado_caso = "Creado";
         $ticket->nombre_caso = $validarDatos['txt_solicitud_caso'];
         $ticket->descripcion = $validarDatos['textDescripcion'];
 
