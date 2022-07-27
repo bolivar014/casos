@@ -61,7 +61,7 @@ class TicketsController extends Controller
             'textDescripcion' => 'required|min:5|max:255'
         ]);
 
-        $ticket->id_cliente = $validarDatos['selIdCliente'];
+        $ticket->fk_id_cliente = $validarDatos['selIdCliente'];
         $ticket->fk_id_abogado = $validarDatos['selIdAbogado'];
         $ticket->estado_caso = "Creado";
         $ticket->nombre_caso = $validarDatos['txt_solicitud_caso'];
@@ -99,12 +99,16 @@ class TicketsController extends Controller
      */
     public function edit($id)
     {
+        // Consultamos personas
+        $peoples = DB::table('people')->get();
+
         // Buscamos id en base de datos
         $ticket = Ticket::findOrFail($id);
 
         // Retornamos vista con objeto de ticket
         return view('tickets.edit', [
-            'ticket' => $ticket
+            'ticket' => $ticket,
+            'peoples' => $peoples
         ]);
     }
 
@@ -117,6 +121,8 @@ class TicketsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        dd($request);
+        /*
         // Validación back inputs
         $validarDatos = $request->validate([
             'selIdCliente' => 'required',
@@ -128,7 +134,7 @@ class TicketsController extends Controller
         // Buscamos id en base de datos
         $ticket = Ticket::findOrFail($id);
         
-        $ticket->id_cliente = $validarDatos['selIdCliente'];
+        $ticket->fk_id_cliente = $validarDatos['selIdCliente'];
         $ticket->fk_id_abogado = $validarDatos['selIdAbogado'];
         $ticket->estado_caso = "Creado";
         $ticket->nombre_caso = $validarDatos['txt_solicitud_caso'];
@@ -139,6 +145,7 @@ class TicketsController extends Controller
 
         // Retornamos vista
         return redirect('/tickets');
+        */
     }
 
     /**
