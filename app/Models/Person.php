@@ -9,8 +9,4 @@ class Person extends Model
 {
     use HasFactory;
 
-    // Relacion de cardinalidad 
-    public function tickets() {
-        return $this->belongsToMany(Ticket::class);
-    }
 }

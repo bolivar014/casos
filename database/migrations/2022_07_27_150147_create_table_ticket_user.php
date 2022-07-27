@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableTicketsLawyers extends Migration
+class CreateTableTicketUser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,26 +13,27 @@ class CreateTableTicketsLawyers extends Migration
      */
     public function up()
     {
-        Schema::create('tickets_lawyers', function (Blueprint $table) {
+        Schema::create('ticket_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('fk_id_caso');
-            $table->unsignedBigInteger('fk_id_abogado');
+            $table->unsignedBigInteger('ticket_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
             // Add foreign keys
-            $table->foreign('fk_id_caso')
+            $table->foreign('ticket_id')
                     ->references('id')
                     ->on('tickets')
                     ->constrained()
-                    ->onDelete('cascade')
+                    ->onDelete('restrict')
                     ->onUpdate('cascade');
 
-            $table->foreign('fk_id_abogado')
+            $table->foreign('user_id')
                     ->references('id')
                     ->on('users')
                     ->constrained()
-                    ->onDelete('cascade')
+                    ->onDelete('restrict')
                     ->onUpdate('cascade');
+                  
         });
     }
 
@@ -43,6 +44,6 @@ class CreateTableTicketsLawyers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tickets_lawyers');
+        Schema::dropIfExists('ticket_user');
     }
 }

@@ -30,14 +30,14 @@ class CreateTicketsTable extends Migration
                     ->references('id')
                     ->on('people')
                     ->constrained()
-                    ->onDelete('cascade')
+                    ->onDelete('restrict')
                     ->onUpdate('cascade');
 
             $table->foreign('fk_id_abogado')
                     ->references('id')
                     ->on('users')
                     ->constrained()
-                    ->onDelete('cascade')
+                    ->onDelete('restrict')
                     ->onUpdate('cascade');
         });
     }

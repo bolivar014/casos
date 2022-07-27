@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    // Relacion de cardinalidad 
+    public function tickets() {
+        return $this->belongsToMany(Ticket::class);
+    }
 }

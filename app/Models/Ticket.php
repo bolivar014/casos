@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Ticket extends Model
 {
     use HasFactory;
+
+     // Relacion de cardinalidad 
+     public function users() {
+        return $this->belongsToMany(User::class);
+    }
 }
