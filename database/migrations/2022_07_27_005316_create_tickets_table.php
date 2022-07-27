@@ -14,15 +14,19 @@ class CreateTicketsTable extends Migration
     public function up()
     {
         Schema::create('tickets', function (Blueprint $table) {
-            $table->id();
-            $table->integer('id_cliente');
-            $table->integer('fk_id_abogado');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('fk_id_cliente');
+            $table->unsignedBigInteger('fk_id_abogado');
             $table->char('nombre_caso', 50);
             $table->date('fecha_inicio')->nullable();
             $table->char('estado_caso', 30);
             $table->date('fecha_arcfin')->nullable();
             $table->string('descripcion');
             $table->timestamps();
+
+            // Add foreignkeys
+            $table->foreign('fk_id_cliente')->references('id')->on('people');
+            $table->foreign('fk_id_abogado')->references('id')->on('users');
         });
     }
 
