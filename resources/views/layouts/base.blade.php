@@ -168,29 +168,40 @@
                         <!-- /.sidebar-menu -->
                         <nav class="mt-2">
                             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                                    <li class="nav-item menu-open">
-                                        <a href="#" class="nav-link active">
-                                            <i class="fas fa-cog"></i>
-                                            <p>
-                                            Helpers
-                                            <i class="right fas fa-angle-left"></i>
-                                            </p>
-                                        </a>
-                                        <ul class="nav nav-treeview">
-                                            <li class="nav-item">
-                                                <a href="{{ url('/apis') }}" class="nav-link"><i class="fas fa-user"></i> vista Api TRM - CO</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="{{ url('/api_trmCO') }}" class="nav-link"><i class="fas fa-user"></i> Api TRM - CO</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                               
+                                <li class="nav-item menu-open">
+                                    <a href="#" class="nav-link active">
+                                        <i class="fas fa-cog"></i>
+                                        <p>
+                                        Helpers
+                                        <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="{{ url('/apis') }}" class="nav-link">
+                                                <i class="nav-icon fas fa-chart-bar"></i> 
+                                                <p> vista Api TRM - CO</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ url('/api_trmCO') }}" class="nav-link">
+                                                <i class="nav-icon fas fa-code"></i> 
+                                                <p> Api TRM - CO</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>                               
                                 <li class="nav-item">
-                                    <a href="{{ url('/tickets') }}" class="nav-link"><i class="fas fa-ticket-alt"></i> Tickets</a>
+                                    <a href="{{ url('/tickets') }}" class="nav-link">
+                                        <i class="nav-icon fas fa-ticket-alt"></i> 
+                                        <p> Tickets</p>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ url('/users') }}" class="nav-link"><i class="fas fa-user"></i> Usuarios</a>
+                                    <a href="{{ url('/users') }}" class="nav-link">
+                                        <i class="nav-icon fas fa-user"></i> 
+                                        <p> Usuarios</p>
+                                    </a>
                                 </li>
                             </ul>
                         </nav>
