@@ -116,10 +116,11 @@
         </section>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>
-            
-            $(document).ready(function() {
-                var arrayAbogadosAsignados = [];
+            // 
+            var arrayAbogadosAsignados = [];
 
+            $(document).ready(function() {
+                // 
                 $('#selIdAbogado').on('change', function(e) {
                     // Buscamos parametro seleccionado
                     var datosCli = $(this).find(':selected').attr('data-idnombre');
@@ -147,13 +148,22 @@
 
                     $('#objAbogados').val(arrayAbogadosAsignados);
                 });
-
             });
-                function eliminarIdAb(idAbonadoEliminar) {
-                    // Eliminamos tr de abogado 
-                    $('#trid-' + idAbonadoEliminar).remove();
-                    // Habilitamos selector de abogado
-                    $('#selopt-' + idAbonadoEliminar).prop('disabled', false);
-                }
+            
+            // Función para activar y eliminar ids de abogados asociados al caso 
+            function eliminarIdAb(idAbonadoEliminar) {
+                // Eliminamos tr de abogado 
+                $('#trid-' + idAbonadoEliminar).remove();
+                // Habilitamos selector de abogado
+                $('#selopt-' + idAbonadoEliminar).prop('disabled', false);
+                // Evento para remover valores innecesarios
+                removeItemFromArr( arrayAbogadosAsignados, idAbonadoEliminar );
+            }
+            // Removiendo valores innecesarios
+            function removeItemFromArr ( arr, item ) {
+                var i = arr.indexOf( item );
+                arr.splice( i, 1 );
+            }
+                        
         </script>
     @endsection
