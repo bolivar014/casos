@@ -76,7 +76,7 @@
                             <div class="form-group">
                                 <label for="" class="col-sm-6">Descripción</label>
                                 <div class="input-group mb-3 col-sm-9">
-                                    <textarea class="form-control" name="textDescripcion" id="textDescripcion" cols="30" rows="4" placeholder="Descripción del caso..." required minlength="1" maxlength="255" value="{{ old('textDescripcion') }}"></textarea>
+                                    <textarea class="form-control" name="textDescripcion" id="textDescripcion" cols="30" rows="3" placeholder="Descripción del caso..." required minlength="1" maxlength="255" value="{{ old('textDescripcion') }}"></textarea>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                             <span class="fas fa-comment"></span>
@@ -93,6 +93,7 @@
                                     <thead>
                                         <th>#</th>
                                         <th>Abogado</th>
+                                        <th>Eliminar</th>
                                     </thead>
                                     <tbody id="tbodyAbogado" name="tbodyAbogado">
                                         <!-- CUERPO HTML PARA TABLA ABOGADOS ASIGNADOS -->
@@ -127,9 +128,10 @@
                     objDatosSplit = datosCli.split('-');
                     
                     // Creamos tr de abogado
-                    objTrAbogado = "<tr>";
+                    objTrAbogado = "<tr id='trid-" + objDatosSplit[0] + "'>";
                     objTrAbogado += "<td>" + objDatosSplit[0] + "</td>";
                     objTrAbogado += "<td>" + objDatosSplit[1] + "</td>";
+                    objTrAbogado += '<td><a href="#" class="badge badge-success" onclick="eliminarIdAb('+objDatosSplit[0]+')" data-idElimIdAb="'+objDatosSplit[0]+'" title="Eliminar"><i class="fas fa-trash"></i></a></td>';
                     objTrAbogado += "<tr>";
                     
                     // Agregamos tag a tabla
@@ -140,11 +142,18 @@
 
                     arrayAbogadosAsignados.push(objDatosSplit[0]);
                     
-                    console.log('----------');
+                    //console.log('----------');
                     console.log(arrayAbogadosAsignados);
 
                     $('#objAbogados').val(arrayAbogadosAsignados);
                 });
+
             });
+                function eliminarIdAb(idAbonadoEliminar) {
+                    // Eliminamos tr de abogado 
+                    $('#trid-' + idAbonadoEliminar).remove();
+                    // Habilitamos selector de abogado
+                    $('#selopt-' + idAbonadoEliminar).prop('disabled', false);
+                }
         </script>
     @endsection
