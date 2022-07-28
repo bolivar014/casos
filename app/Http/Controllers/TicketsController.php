@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Ticket;
 use App\Models\Person;
+use App\Models\TicketUser;
 class TicketsController extends Controller
 {
     // Constructor para permitir el uso de sólo personas autenticadas
@@ -64,9 +65,11 @@ class TicketsController extends Controller
         // Validación back inputs
         $validarDatos = $request->validate([
             'selIdCliente' => 'required',
-            'selIdAbogado' => 'required',
+            // 'selIdAbogado' => 'required',
+            'selIdAbogado' => '',
             'txt_solicitud_caso' => 'required|min:5|max:50',
-            'textDescripcion' => 'required|min:5|max:255'
+            'textDescripcion' => 'required|min:5|max:255',
+            'objAbogados' => 'required'
         ]);
 
         $ticket->fk_id_cliente = $validarDatos['selIdCliente'];
@@ -80,9 +83,28 @@ class TicketsController extends Controller
 
         // ----------------
         // Recupero la ultima ejecución
-        $data = Ticket::latest()->first()->id;
+        $idDataUltimaInsercion = Ticket::latest()->first()->id;
+        $objIdsAbogadosAux = "";
 
+        // Recuperamos Array con ids de abogados encargados
+        $objIdsAbogados = $validarDatos['objAbogados'];
         
+        // Iteramos para acceder al objeto de ids
+        foreach ($objIdsAbogados as $key => $value) {
+            $objIdsAbogadosAux = $value;
+        }
+
+        // Separamos el obj de ids
+        $objidsAbogados = explode(',', $objIdsAbogadosAux);
+
+        // Realizamos inserción de todos los registros en DB.
+        for($i = 0 ; $i < (COUNT($objidsAbogados)) ; $i++) {
+            $TicketUser = new TicketUser();
+            $TicketUser->ticket_id = $idDataUltimaInsercion;
+            $TicketUser->user_id = $objidsAbogados[$i];
+            $TicketUser->save();
+        }
+
         // Retornamos vista
         return redirect('/tickets');
     }
